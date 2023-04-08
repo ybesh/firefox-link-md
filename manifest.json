@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Markdown Link Creator",
+  "version": "1.0",
+  "description": "Create markdown links for web pages.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "permissions": [
+    "tabs",
+    "contextMenus"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  }
+}
+
