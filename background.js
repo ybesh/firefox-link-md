@@ -11,8 +11,15 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
 
     // Check if the page is a YouTube video page
     if (pageUrl.includes("youtube.com/watch")) {
-      // Remove query parameters from YouTube video page URL
-      pageUrl = pageUrl.split('?')[0];
+      // Extract video ID from YouTube video page URL
+      var videoId = pageUrl.split("v=")[1];
+      if (videoId) {
+        var ampersandPosition = videoId.indexOf("&");
+        if (ampersandPosition != -1) {
+          videoId = videoId.substring(0, ampersandPosition);
+        }
+        pageUrl = "https://www.youtube.com/watch?v=" + videoId;
+      }
     }
 
     var markdownLink = "[" + pageTitle + "](" + pageUrl + ")";
